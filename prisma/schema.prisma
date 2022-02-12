@@ -1,0 +1,17 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ShortenURLRequest {
+  request_id      Int       @id @default(autoincrement())
+  entered_url     String    @db.VarChar(65500)
+  shortened_url   String    @db.VarChar(128)
+}
