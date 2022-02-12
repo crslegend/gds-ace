@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, IconButton, InputAdornment, TextField, Typography } from "@material-ui/core";
+import { Button, CircularProgress, IconButton, InputAdornment, TextField, Typography } from "@material-ui/core";
 import { Cancel } from "@material-ui/icons";
 import { useSnackbar } from "notistack";
 
 import { shortenURL } from "../helpers/controller";
+import { domain } from "../config/index";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -81,22 +82,29 @@ const Home = () => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton edge="end" size="small" onClick={() => setUrl("")}>
+                <IconButton edge="end" size="small" onClick={() => setUrl("")} disabled={shortening}>
                   <Cancel />
                 </IconButton>
               </InputAdornment>
             ),
           }}
+          disabled={shortening}
         />
-        <Button
-          variant="contained"
-          color="secondary"
-          fullWidth
-          disabled={url === "" || !url}
-          onClick={() => handleShorten()}
-        >
-          Shorten Lah
-        </Button>
+        {shortening ? (
+          <Button variant="contained" color="secondary" fullWidth startIcon={<CircularProgress size="1.5rem" />}>
+            Shortening
+          </Button>
+        ) : (
+          <Button
+            variant="contained"
+            color="secondary"
+            fullWidth
+            disabled={url === "" || !url}
+            onClick={() => handleShorten()}
+          >
+            Shorten Lah
+          </Button>
+        )}
       </div>
     </div>
   );
