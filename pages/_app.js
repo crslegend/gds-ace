@@ -37,7 +37,7 @@ const MyApp = (props) => {
         <SnackbarProvider
           maxSnack={2}
           ref={notistackRef}
-          autoHideDuration={500000}
+          autoHideDuration={5000}
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
           action={(key) => (
             <Button onClick={onClickDismiss(key)} style={{ color: "#fff" }}>
