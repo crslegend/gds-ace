@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, TextField, Typography } from "@material-ui/core";
+import { Button, IconButton, InputAdornment, TextField, Typography } from "@material-ui/core";
+import { Cancel } from "@material-ui/icons";
 import { useSnackbar } from "notistack";
 
 import { shortenURL } from "../helpers/controller";
@@ -77,6 +78,15 @@ const Home = () => {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="https://www.google.com/"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton edge="end" size="small" onClick={() => setUrl("")}>
+                  <Cancel />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <Button
           variant="contained"
