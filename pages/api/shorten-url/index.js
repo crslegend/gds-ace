@@ -5,7 +5,6 @@ import { nanoid } from "nanoid";
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { enteredURL } = req.body;
-    // console.log(enteredURL);
 
     // use regex to check if entered string is a valid URL
     const expression =
