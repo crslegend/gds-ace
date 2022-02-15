@@ -54,8 +54,10 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     gap: theme.spacing(1),
   },
-  loader: {
-    color: theme.palette.secondary.main,
+  textField: {
+    "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.palette.primary.main,
+    },
   },
 }));
 
@@ -137,6 +139,7 @@ const Home = () => {
         ) : (
           <div className={classes.lowerSection}>
             <TextField
+              className={classes.textField}
               variant="outlined"
               margin="dense"
               color="primary"
