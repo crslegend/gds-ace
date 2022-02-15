@@ -98,7 +98,7 @@ const Home = () => {
     <div className={`${classes.container} ${classes.backgroundImage}`}>
       <Paper className={classes.paper} elevation={5}>
         <div className={classes.headerSection}>
-          {/* <Image src={"/logo.png"} alt="logo" width={80} height={80} /> */}
+          <Image src={"/logo.png"} alt="logo" width={80} height={80} />
           <Typography variant="h2" className={classes.header}>
             ShortenLah!
           </Typography>
