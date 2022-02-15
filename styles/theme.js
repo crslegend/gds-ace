@@ -5,55 +5,16 @@ import { red } from "@material-ui/core/colors";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#FFFBF6",
+      main: "#4385da",
     },
     secondary: {
-      main: "#8B5725",
+      main: "#762080",
     },
     error: {
       main: red.A400,
     },
     background: {
       default: "#fff",
-    },
-  },
-  typography: {
-    fontFamily: "Work Sans",
-    h1: {
-      // fontFamily: "Museo Sans Cyrl 300",
-      fontSize: 48,
-    },
-    h2: {
-      // fontFamily: "Museo Sans Cyrl 300",
-      fontSize: 42,
-    },
-    h3: {
-      // fontFamily: "Museo Sans Cyrl 300",
-      fontSize: 36,
-    },
-    h4: {
-      // fontFamily: "Museo Sans Cyrl 300",
-      fontSize: 32,
-    },
-    h5: {
-      // fontFamily: "Museo Sans Cyrl 300",
-      fontSize: 22,
-    },
-    h6: {
-      // fontFamily: "Museo Sans Cyrl 300",
-      fontSize: 20,
-    },
-    subtitle1: {
-      // fontFamily: "Museo Sans Cyrl 300",
-      fontSize: 18,
-    },
-    body1: {
-      // fontFamily: "Museo Sans Cyrl 300",
-      fontSize: 16,
-    },
-    body2: {
-      // fontFamily: "Museo Sans Cyrl 300",
-      fontSize: 14,
     },
   },
   breakpoints: {
@@ -66,5 +27,79 @@ const theme = createMuiTheme({
     },
   },
 });
+
+theme.typography.h1 = {
+  fontFamily: "Work Sans",
+  fontSize: "2.25rem",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "2rem",
+  },
+};
+
+theme.typography.h2 = {
+  fontFamily: "Work Sans",
+  fontSize: "1.875rem",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1.625rem",
+  },
+};
+
+theme.typography.h3 = {
+  fontFamily: "Work Sans",
+  fontSize: "1.75rem",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1.5rem",
+  },
+};
+
+theme.typography.h4 = {
+  fontFamily: "Work Sans",
+  fontSize: "1.625rem",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1.375rem",
+  },
+};
+
+theme.typography.h5 = {
+  fontFamily: "Work Sans",
+  fontSize: "1.375rem",
+  fontWeight: 400,
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1.25rem",
+  },
+};
+
+theme.typography.h6 = {
+  fontFamily: "Work Sans",
+  fontSize: "1.25rem",
+  fontWeight: 400,
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1rem",
+  },
+};
+
+theme.typography.subtitle1 = {
+  fontFamily: "Work Sans",
+  fontSize: "1rem",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "0.9375rem",
+  },
+};
+
+theme.typography.body1 = {
+  fontFamily: "Work Sans",
+  fontSize: "1rem",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "0.9375rem",
+  },
+};
+
+theme.typography.body2 = {
+  fontFamily: "Work Sans",
+  fontSize: "0.9375rem",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "0.875rem",
+  },
+};
 
 export default theme;
