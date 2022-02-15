@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, CircularProgress, IconButton, InputAdornment, Paper, TextField, Typography } from "@material-ui/core";
 import { Cancel } from "@material-ui/icons";
@@ -38,13 +39,19 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(3, 3),
     },
   },
-  header: {
+  headerSection: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
     gap: theme.spacing(1),
+  },
+  header: {
+    fontWeight: 600,
+    background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
   },
   lowerSection: {
     display: "flex",
@@ -89,14 +96,15 @@ const Home = () => {
 
   return (
     <div className={`${classes.container} ${classes.backgroundImage}`}>
-      <Typography>Logo here</Typography>
-
       <Paper className={classes.paper} elevation={5}>
-        <div className={classes.header}>
-          <Typography variant="h2" style={{ fontWeight: 600 }}>
+        <div className={classes.headerSection}>
+          {/* <Image src={"/logo.png"} alt="logo" width={80} height={80} /> */}
+          <Typography variant="h2" className={classes.header}>
             ShortenLah!
           </Typography>
-          <Typography variant="body1">{`Singaporeans' Go-to URL Shortener`}</Typography>
+          <Typography variant="body1" style={{ fontStyle: "italic", fontWeight: 300 }}>
+            {`Singaporeans' Go-to URL Shortener`}
+          </Typography>
         </div>
 
         {showResult ? (
