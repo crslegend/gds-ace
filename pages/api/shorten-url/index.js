@@ -1,5 +1,5 @@
 // Endpoint to handle shorten of URL
-import prisma from "../../lib/prisma.ts";
+import prisma from "../../../lib/prisma.ts";
 import { nanoid } from "nanoid";
 
 export default async function handler(req, res) {
