@@ -1,4 +1,4 @@
 module.exports = {
   preset: "@shelf/jest-mongodb",
-  setupFiles: ["<rootDir>/test/setupEnv.js"],
+  setupFiles: ["<rootDir>/__test__/setupEnv.js"],
 };
