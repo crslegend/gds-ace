@@ -1,13 +1,15 @@
 // endpoint to handle retrieval of entered url
-import prisma from "../../../../lib/prisma.ts";
+import { connectToDatabase } from "../../../../lib/mongodb";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
     const { shortenedURL } = req.query;
 
+    const { db } = await connectToDatabase();
+
     if (shortenedURL) {
-      const urlRequest = await prisma.ShortenURLRequest.findFirst({
-        where: { shortened_url: shortenedURL },
+      const urlRequest = await db.collection("ShortenURLRequest").findOne({
+        shortened_url: shortenedURL,
       });
 
       if (urlRequest) {

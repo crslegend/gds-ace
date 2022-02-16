@@ -1,5 +1,5 @@
 // Endpoint to handle shorten of URL
-import prisma from "../../../lib/prisma.ts";
+import { connectToDatabase } from "../../../lib/mongodb";
 import { nanoid } from "nanoid";
 
 export default async function handler(req, res) {
@@ -16,8 +16,10 @@ export default async function handler(req, res) {
       return;
     }
 
-    const urlRequest = await prisma.ShortenURLRequest.findFirst({
-      where: { entered_url: enteredURL },
+    const { db } = await connectToDatabase();
+
+    const urlRequest = await db.collection("ShortenURLRequest").findOne({
+      entered_url: enteredURL,
     });
 
     if (urlRequest) {
@@ -29,12 +31,11 @@ export default async function handler(req, res) {
       const shortenedURL = nanoid(9);
 
       try {
-        await prisma.ShortenURLRequest.create({
-          data: {
-            entered_url: enteredURL,
-            shortened_url: shortenedURL,
-          },
+        await await db.collection("ShortenURLRequest").insertOne({
+          entered_url: enteredURL,
+          shortened_url: shortenedURL,
         });
+
         res.status(200).json(shortenedURL);
       } catch (error) {
         res.status(400).json("Something went wrong. Please try again!");
