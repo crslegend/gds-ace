@@ -3,7 +3,6 @@ import Image from "next/image";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Typography } from "@material-ui/core";
 
-import { getShortenURL } from "../../helpers/controller";
 import { connectToDatabase } from "../../lib/mongodb";
 
 const useStyles = makeStyles((theme) => ({
