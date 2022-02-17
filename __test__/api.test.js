@@ -3,7 +3,7 @@ import index from "../pages/api/shorten-url";
 import index2 from "../pages/api/shorten-url/[shortenedURL]";
 
 import { createMocks } from "node-mocks-http";
-import { connect, disconnect } from "./setupDB.js";
+import { connect, disconnect } from "./setupDb.js";
 
 describe("Test API Endpoints", () => {
   let db;
