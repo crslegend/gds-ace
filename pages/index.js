@@ -114,12 +114,12 @@ const Home = () => {
               margin="dense"
               color="primary"
               fullWidth
-              value={domain !== "" ? domain + shortenedUrl : window && window.location.href + "/" + shortenedUrl}
+              value={domain !== "" ? domain + shortenedUrl : window && window.location.href + shortenedUrl}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
                     <CopyToClipboard
-                      text={domain !== "" ? domain + shortenedUrl : window && window.location.href + "/" + shortenedUrl}
+                      text={domain !== "" ? domain + shortenedUrl : window && window.location.href + shortenedUrl}
                       onCopy={() => enqueueSnackbar("URL copied", { variant: "success" })}
                     >
                       <Button variant="contained" color="primary" edge="end" size="small">
