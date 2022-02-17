@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Typography } from "@material-ui/core";
 
 import { getShortenURL } from "../../helpers/controller";
+import { connectToDatabase } from "../../lib/mongodb";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -73,20 +74,22 @@ const ShortenedURLPage = (props) => {
 export async function getServerSideProps(context) {
   const { shortenedURL } = context.params;
 
-  return await getShortenURL(shortenedURL)
-    .then((res) => {
-      return {
-        redirect: {
-          destination: res.data.entered_url,
-          permanent: false,
-        },
-      };
-    })
-    .catch((err) => {
-      return {
-        props: {},
-      };
-    });
+  const { db } = await connectToDatabase();
+
+  const urlRequest = await db.collection("ShortenURLRequest").findOne({
+    shortened_url: shortenedURL,
+  });
+
+  if (urlRequest) {
+    return {
+      redirect: {
+        destination: urlRequest.entered_url,
+        permanent: false,
+      },
+    };
+  }
+
+  return { props: {} };
 }
 
 export default ShortenedURLPage;
