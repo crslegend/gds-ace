@@ -173,7 +173,12 @@ const Home = () => {
               disabled={shortening}
             />
             {shortening ? (
-              <Button variant="contained" color="secondary" fullWidth startIcon={<CircularProgress size="1.5rem" />}>
+              <Button
+                variant="contained"
+                color="secondary"
+                fullWidth
+                startIcon={<CircularProgress size="1.5rem" style={{ color: "#fff" }} />}
+              >
                 Shortening
               </Button>
             ) : (
