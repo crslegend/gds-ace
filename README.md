@@ -1,6 +1,6 @@
 # ShortenLah!
 
-ShortenLah! is a URL shortener and can be accessed [here](https://shortenlah.vercel.app/) publicly. It is implemented using [Next.js](https://nextjs.org/) and deployed on the [Vercel Platform](https://vercel.com/). Shortened URLs are persisted on a hosted MongoDB instance.
+ShortenLah! is a URL shortener and can be accessed [here](https://shortenlah.vercel.app/) publicly. It is implemented using [Next.js](https://nextjs.org/) and deployed on the [Vercel Platform](https://vercel.com/). Shortened URLs are persisted in MongoDB Atlas database.
 
 *If above hyperlink for ShortenLah! does not work, it can be accessed at https://shortenlah.vercel.app/.*
 
