@@ -17,6 +17,8 @@ export async function connect() {
   });
   const db = await connection.db();
 
+  await db.collection("ShortenURLRequest").createIndex({ shortened_url: 1 }, { unique: true });
+
   cachedConnection = connection;
   cachedDb = db;
 
