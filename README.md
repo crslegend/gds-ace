@@ -1,6 +1,6 @@
 # ShortenLah!
 
-ShortenLah! is a URL shortener and can be accessed [here](https://shortenlah.vercel.app/) publicly. It is implemented using [Next.js](https://nextjs.org/) and deployed on the [Vercel Platform](https://vercel.com/).
+ShortenLah! is a URL shortener and can be accessed [here](https://shortenlah.vercel.app/) publicly. It is implemented using [Next.js](https://nextjs.org/) and deployed on the [Vercel Platform](https://vercel.com/). Shortened URLs are persisted on a hosted MongoDB instance.
 
 *If above hyperlink for ShortenLah! does not work, it can be accessed at https://shortenlah.vercel.app/.*
 
@@ -15,6 +15,7 @@ These are the commands that can be executed when deployed locally:
 # To run on the development server
 npm run dev
 
+# Unit tests for API are stored in <rootDirectory>/__test__/api.test.js
 # To run unit tests using Jest framework
 npm run test
 ```
